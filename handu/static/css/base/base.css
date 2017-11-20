@@ -1,0 +1,107 @@
+* {
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+}
+
+#bs-example-navbar-collapse-1 a {
+
+    background-color: #F10180 !important;
+
+}
+
+.navbar{
+
+    min-height: 45px;
+
+}
+
+html, body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+body {
+
+    color: white !important;
+
+}
+
+.navbar-inverse {
+
+    background-color: #F10180 !important;
+    border-color: #F10180;
+
+}
+
+#nav_base_top {
+
+    height: 45px !important;
+
+}
+
+#bs-example-navbar-collapse-1 {
+
+    min-height: 45px !important;
+
+}
+
+#bs-example-navbar-collapse-1 ul, li{
+
+    height: 44px !important;
+
+}
+
+#bs-example-navbar-collapse-1 li a{
+
+    height: 44px !important;
+    line-height: 44px !important;
+    /*margin-left: 20px !important;*/
+    color: white !important;
+
+}
+
+.divider{
+
+    height: 1px !important;
+
+}
+.dropdown-menu li, .dropdown-menu li a{
+
+    width: 166px !important;
+    margin: 0 !important;
+    text-align: center !important;
+}
+
+.dropdown{
+
+    /*margin-right: 40px !important;*/
+
+}
+
+#bs-example-navbar-collapse-1 ul:first-child{
+
+    margin-left: 50px !important;
+
+}
+
+#div_padding_1{
+
+    padding: 1px;
+
+}
+
+.margin_twenty{
+
+    margin-left: 20px !important;
+
+}
+
+.margin_right_twenty{
+
+    margin-right: 20px !important;
+
+}

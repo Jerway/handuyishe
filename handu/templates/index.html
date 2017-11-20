@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block title %}
+
+        <title>miaomiao</title>
+
+    {% endblock %}
+
+    {% block js %}
+
+        <script src="{% static 'js/main/index.js' %}"></script>
+
+    {% endblock %}
+
+    {% block css %}
+
+        <link rel="stylesheet" href="{% static 'css/main/index.css' %}">
+
+    {% endblock %}
+
+</head>
+<body>
+
+{% block page_content %}
+
+    <div id="div_all_container">
+
+        <div class="swiper-container">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide"></div>
+                <div class="swiper-slide"></div>
+                <div class="swiper-slide"></div>
+
+            </div>
+
+        </div>
+
+        <div id="div_type_list">
+
+            {% for type in typelist %}
+
+                <a href="{% url 'main:classify' type.name %}" class="a_type">{{ type.name }}{{ type.total }}</a>
+
+                {% if forloop.counter|divisibleby:4 %}
+
+                    <br/>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        <div id="div_container">
+
+            <div class="row">
+                {% for every in data %}
+
+                    <div class="col-sm-6 col-md-3" id="div_every">
+                        <div class="thumbnail">
+                            <a href="#"><img src="{{ every.imgurl }}"></a>
+                            <div class="caption">
+                                <h5>{{ every.name }}</h5>
+                                <h3>{{ every.price }}</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <nav aria-label="Page navigation" id="nav_pagination">
+                <ul class="pagination pagination-lg" id="ul_pagination_bottom">
+
+                    <li id="li_up">&LeftTeeArrow;</li>
+                    {% for page in paginator.page_range %}
+
+                        {% if forloop.counter < 9 %}
+                            <li><a href="#">{{ page }}</a></li>
+                        {% elif forloop.counter == 9%}
+                            <li id="li_omit">...</li>
+                        {% endif %}
+
+                    {% endfor %}
+                    <li id="li_total">共{{ paginator.num_pages }}页</li>
+                </ul>
+            </nav>
+
+
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>

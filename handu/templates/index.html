@@ -30,7 +30,7 @@
 
     <div id="div_all_container">
 
-        <div class="swiper-container">
+        <div class="swiper-container swiper-container_1">
 
             <div class="swiper-wrapper">
 
@@ -44,6 +44,7 @@
 
         <div id="div_type_list">
 
+            <a href="{% url 'main:index' %}" class="a_type">全部</a>
             {% for type in typelist %}
 
                 <a href="{% url 'main:classify' type.name %}" class="a_type">{{ type.name }}{{ type.total }}</a>
@@ -75,23 +76,14 @@
 
                 {% endfor %}
             </div>
-            <nav aria-label="Page navigation" id="nav_pagination">
-                <ul class="pagination pagination-lg" id="ul_pagination_bottom">
 
-                    <li id="li_up">&LeftTeeArrow;</li>
-                    {% for page in paginator.page_range %}
+            <div id="div_paginator">
 
-                        {% if forloop.counter < 9 %}
-                            <li><a href="#">{{ page }}</a></li>
-                        {% elif forloop.counter == 9%}
-                            <li id="li_omit">...</li>
-                        {% endif %}
+                <a href="{% url 'main:page_chage' type_name '0' present_page %}" id="a_pre_page"><img src="{% static 'img/main/pre.png' %}"></a>
+                <span id="span_num_total">{{ present_page }}/{{ paginator.num_pages }}</span>
+                <a href="{% url 'main:page_chage' type_name '1' present_page %}" id="a_next_page"><img src="{% static 'img/main/next.png' %}"></a>
 
-                    {% endfor %}
-                    <li id="li_total">共{{ paginator.num_pages }}页</li>
-                </ul>
-            </nav>
-
+            </div>
 
         </div>
     </div>

@@ -18,3 +18,4 @@ type_id_collection = {
     '20872':'fengyi',
 
 }
+

@@ -5,6 +5,7 @@ from App.models import ProType, Product
 import math
 
 
+
 def index(request):
     data = Product.objects.all()
     type_list = ProType.objects.all()

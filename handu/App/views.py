@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from App.models import ProType, Product
 import math
-
+from .form import RegisterForm
 
 
 def index(request):
@@ -75,3 +75,29 @@ def page_chage(request, type_name, direction, present_page):
     }
 
     return render(request, 'index.html', context)
+
+
+def register(request):
+
+    if request.method == 'POST':
+
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('main:index')
+
+    else:
+        form = RegisterForm()
+        context = {
+
+            'form':form,
+
+        }
+
+        return render(request, 'register.html', context)
+
+
+
+
+

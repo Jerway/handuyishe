@@ -30,16 +30,15 @@
 
     <div id="div_all_container">
 
-        <div class="swiper-container swiper-container_1">
-
+        <div class="swiper-container">
             <div class="swiper-wrapper">
-
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-                <div class="swiper-slide"></div>
-
+                <div class="swiper-slide" style="background-image:url('/static/img/main/one.jpg')"></div>
+                <div class="swiper-slide" style="background-image:url('/static/img/main/two.png')"></div>
+                <div class="swiper-slide" style="background-image:url('/static/img/main/three.jpg')"></div>
+                <div class="swiper-slide" style="background-image:url('/static/img/main/four.jpg')"></div>
+                <div class="swiper-slide" style="background-image:url('/static/img/main/five.jpg')"></div>
+                <div class="swiper-slide" style="background-image:url('/static/img/main/six.jpg')"></div>
             </div>
-
         </div>
 
         <div id="div_type_list">
@@ -47,7 +46,7 @@
             <a href="{% url 'main:index' %}" class="a_type">全部</a>
             {% for type in typelist %}
 
-                <a href="{% url 'main:classify' type.name %}" class="a_type">{{ type.name }}{{ type.total }}</a>
+                <a href="{% url 'main:classify' type.name %}" class="a_type">{{ type.name }}<span class="span_total">{{ type.total }}</span></a>
 
                 {% if forloop.counter|divisibleby:4 %}
 
@@ -79,9 +78,11 @@
 
             <div id="div_paginator">
 
-                <a href="{% url 'main:page_chage' type_name '0' present_page %}" id="a_pre_page"><img src="{% static 'img/main/pre.png' %}"></a>
+                <a href="{% url 'main:page_chage' type_name '0' present_page %}" id="a_pre_page"><img
+                        src="{% static 'img/main/pre.png' %}"></a>
                 <span id="span_num_total">{{ present_page }}/{{ paginator.num_pages }}</span>
-                <a href="{% url 'main:page_chage' type_name '1' present_page %}" id="a_next_page"><img src="{% static 'img/main/next.png' %}"></a>
+                <a href="{% url 'main:page_chage' type_name '1' present_page %}" id="a_next_page"><img
+                        src="{% static 'img/main/next.png' %}"></a>
 
             </div>
 

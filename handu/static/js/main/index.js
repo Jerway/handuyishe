@@ -8,14 +8,16 @@ $(function () {
 function initSwiperWheel() {
 
     var swiper = new Swiper('.swiper-container', {
-        effect: 'cube',
+        effect: 'coverflow',
         grabCursor: true,
-        autoplay: 3000,
-        cube: {
-            shadow: true,
-            slideShadows: true,
-            shadowOffset: 20,
-            shadowScale: 0.94
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflow: {
+            rotate: 20,
+            stretch: 3,
+            depth: 20,
+            modifier: 3,
+            slideShadows : true
         }
     });
 

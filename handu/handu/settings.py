@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# SILENCED_SYSTEM_CHECKS = ['fields.E300', 'fields.E307']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -71,7 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'handu.wsgi.application'
 
-
+AUTH_USER_MODEL = 'App.User'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -129,6 +130,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
 
-# AUTH_USER_MODEL = 'App.User'
 
 

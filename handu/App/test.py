@@ -1,9 +1,9 @@
-
 # coding=utf-8
 
-test = 'uihidvmdv'
-
-print(test[2:])
+test_list = [1,2,3,4]
 
 
+def test():
+    print(test_list)
 
+test()

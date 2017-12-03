@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum�scale=1.0, user-scalable=no">
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum�scale=1.0, user-scalable=no">#}
     <title>注册</title>
-    <link rel="stylesheet" href="https://unpkg.com/mobi.css/dist/mobi.min.css">
+    <link rel="stylesheet" href="{% static 'css/main/mobi.css' %}">
     <style>
         .errorlist {
             color: red;
@@ -17,7 +18,7 @@
     <div class="container">
         <div class="flex-center">
             <div class="unit-1-2 unit-1-on-mobile">
-                <h1 style="color: #ff396a"><a href="{% url 'main:index' %}">~ Ann< ~</a></h1>
+                <h1 style="color: #F10180"><a href="{% url 'main:index' %}">~ Ann< ~</a></h1>
                 <form class="form" action="{% url 'main:register' %}"
                       method="post">
                     {% csrf_token %}
@@ -34,7 +35,7 @@
                     <input type="hidden" name="next" value="{{ next }}"/>
                 </form>
                 <div class="flex-center top-gap text-small">
-{#                    <a href="{% url 'login' %}">已有账号登录</a>#}
+                    <a href="{% url 'login' %}">已有账号登录</a>
                 </div>
             </div>
         </div>

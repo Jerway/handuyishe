@@ -12,6 +12,8 @@ function initSwiperWheel() {
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
+        loop: true,
+        autoplay: 1000,
         coverflow: {
             rotate: 20,
             stretch: 3,

@@ -1,6 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from django.urls import reverse
+
 from App.models import ProType, Product
 import math
 from .form import RegisterForm
@@ -78,26 +80,21 @@ def page_chage(request, type_name, direction, present_page):
 
 
 def register(request):
-
     if request.method == 'POST':
 
         form = RegisterForm(request.POST)
 
         if form.is_valid():
             form.save()
-            return redirect('main:index')
-
+            return HttpResponseRedirect(reverse('main:index'))
+        else:
+            return HttpResponse('-------- xiaochuizi -------')
     else:
         form = RegisterForm()
         context = {
 
-            'form':form,
+            'form': form,
 
         }
 
         return render(request, 'register.html', context)
-
-
-
-
-

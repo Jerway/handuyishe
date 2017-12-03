@@ -27,3 +27,16 @@ class Product(models.Model):
 
     class Meta:
         db_table = 'product'
+
+
+class ProductInfo(models.Model):
+    pid = models.ForeignKey(Product)
+    pname = models.CharField(max_length=200)
+    price = models.CharField(max_length=10)
+    pdelprice = models.CharField(max_length=20, blank=True)
+    pfeature = models.CharField(max_length=200, blank=True)
+    pcolors = models.CharField(max_length=500)
+    pimgs = models.CharField(max_length=1000)
+    pimgl = models.CharField(max_length=1000)
+    psize = models.CharField(max_length=2000)
+    pdetails = models.CharField(max_length=2000)

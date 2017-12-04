@@ -32,13 +32,10 @@ def getpid():
                                        'sort': 0,
                                        'size_name': '',
                                        '_': 1511963203121})
-        try:
-            pid = baseurl.text.split('[')[1].split(']')[0]
-            for id in pid.split(','):
-                id = id.strip('"')
-                yield id
-        except:
-            pass
+        pid = baseurl.text.split('[')[1].split(']')[0]
+        for id in pid.split(','):
+            id = id.strip('"')
+            yield id
 
 
 def fetch():
@@ -59,9 +56,8 @@ delpricelist = []
 featurelist = []
 errorid = []
 
+
 miaomiao = 0
-
-
 def get_simghref():
     global miaomiao
     global stotallist
@@ -122,8 +118,6 @@ def get_simghref():
 sizelist = []
 
 num = 0
-
-
 def get_size():
     global num
     for id in getpid():
@@ -165,16 +159,16 @@ def save_to_mysql():
                 product.pimgl = ltotallist[num]
                 product.pimgs = stotallist[num]
                 product.psize = sizelist[num]
-                product.pfeature = featurelist[num]
+                product.pfeature = featurelist[0]
                 product.save()
                 print('保存成功')
-
-        else:
-            print('%s CAN NOT FIND' % id)  # def downloader():  # while True:
-        num = num + 1
+            else:
+                print('%s CAN NOT FIND' % id)
 
 
-# get_simghref()
+# def downloader():
+#     while True:
+#         get_simghref()
 #         link = link_queue.get()
 #         if link is None:
 #             break
